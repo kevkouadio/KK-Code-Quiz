@@ -1,0 +1,34 @@
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#container {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+#questionsBox {
+   
+}
+
+#startQuiz {
+    background-color: purple;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-size: 100%;
+}
+
+#timer {
+    position: absolute;
+    right: 10px;  
+}
+
+@media screen and (max-width: 640px) {
+    /* Resized content to fit 640px  */
+    
+
+}
