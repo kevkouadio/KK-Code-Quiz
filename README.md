@@ -1,12 +1,13 @@
 # 04 Web APIs: Code Quiz
 
 Click on the following link to get to the application:
-* ['Password-Generator GitHub IO'](https://kevkouadio.github.io/hw3-password-generator/.)
+* ['KK JS Code Quiz GitHub IO'](https://kevkouadio.github.io/KK-Code-Quiz/)
 
 The following images demonstrates the application functionality:
-![password generator demo](./Screeshots/Screenshot1.png)
-![password generator demo](./Screeshots/Screenshot2.png)
+![password generator demo](./Assets/Screen-Shot1.png)
+![password generator demo](./Assets/Screen-Shot2.png)
 
+### Summary
 
 The application is javascript fundamental code quiz with multiple-choice questions. The app runs in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It also feature a clean and polished user interface and is responsive. It adapts to multiple screen sizes.
 
