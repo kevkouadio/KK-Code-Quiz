@@ -1,42 +1,27 @@
 # 04 Web APIs: Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+Click on the following link to get to the application:
+* ['Password-Generator GitHub IO'](https://kevkouadio.github.io/hw3-password-generator/.)
 
-## User Story
+The following images demonstrates the application functionality:
+![password generator demo](./Screeshots/Screenshot1.png)
+![password generator demo](./Screeshots/Screenshot2.png)
+
+
+The application is javascript fundamental code quiz with multiple-choice questions. The app runs in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It also feature a clean and polished user interface and is responsive. It adapts to multiple screen sizes.
+
+
+## Application features
 
 ```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
+WHEN I click the start button,
+THEN a timer starts and a question is presented with multiple choices.
+Clic to choose the right answer,
+THEN another question is presented, 
+WHEN the answer is incorrect,
+THEN 5 seconds are subtracted from the clock,
 WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
-THEN I can save my initials and score
+THEN the player can save his/her initials and score. 
 ```
-
-The following animation demonstrates the application functionality:
-
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

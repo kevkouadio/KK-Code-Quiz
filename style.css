@@ -10,11 +10,7 @@ body {
     font-size: 18px;
 }
 
-#questionsBox {
-   
-}
-
-#startQuiz {
+#startTime {
     background-color: purple;
     color: white;
     width: 100px;
@@ -22,13 +18,38 @@ body {
     font-size: 100%;
 }
 
-#timer {
+#currentTime {
     position: absolute;
     right: 10px;  
 }
 
-@media screen and (max-width: 640px) {
-    /* Resized content to fit 640px  */
-    
+
+li {
+    background-color: purple;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    font-size: 18px;
+    color: white;
+}
+
+#createDiv {
+    margin-top: 20px;
+    border-top: 1px solid lightgray;
+}
+
+#Submit {
+    background-color: purple;
+    margin-left: 33%;
+    padding: 15px 32px;
+    font-size: 20px;
+    color: white;
 
 }
+
+#clear, #goBack {
+    background-color: purple;
+    font-size: 20px;
+    color: white;
+    }

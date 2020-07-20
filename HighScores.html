@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Highscores</title>
+
+</head>
+
+<body>
+    
+    <div id="container">
+        <div id="questionsBox">
+            <h1>Highscores</h1>
+            <ol id="highScore"></ol>
+            <button id="goBack">Go Back</button>
+            <button id="clear" value="reset">Clear Highscore</button>
+        </div>
+    </div>
+
+<script>
+
+var highScore = document.querySelector("#highScore");
+var clear = document.querySelector("#clear");
+var goBack = document.querySelector("#goBack");
+
+// Event listener to clear scores 
+clear.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+// Retreives local stroage 
+var allScores = localStorage.getItem("allScores");
+allScores = JSON.parse(allScores);
+
+if (allScores !== null) {
+
+    for (var i = 0; i < allScores.length; i++) {
+
+        var createLi = document.createElement("li");
+        createLi.textContent = allScores[i].initials + " " + allScores[i].score;
+        highScore.appendChild(createLi);
+
+    }
+}
+// Event listener to move to index page
+goBack.addEventListener("click", function () {
+    window.location.replace("./index.html");
+});
+
+</script>
+
+</body>
+
+</html>
