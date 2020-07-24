@@ -18,7 +18,7 @@ body {
     font-size: 100%;
 }
 
-#currentTime {
+#time {
     position: absolute;
     right: 10px;  
 }

@@ -37,56 +37,54 @@ var questions = [
     }
 ]
 
-var score = 0;
 var questionIndex = 0;
+var score = 0;
 
-// Start working code 
-// Declared variables
-var currentTime = document.querySelector("#currentTime");
+var time = document.querySelector("#time");
 var timer = document.querySelector("#startTime");
 var questionsBox = document.querySelector("#questionsBox");
 var container = document.querySelector("#container");
 
-// Seconds left is 10 seconds per question:
+
 var secondsLeft = 70;
-// Holds interval time
+// interval time
 var holdInterval = 0;
-// Holds penalty time
+// penalty time
 var penalty = 5;
-// Creates new element
+// Creating of elements for the choices
 var olCreate = document.createElement("ol");
 
-// Triggers timer on button, shows user a display on the screen
+// Set of timer
 timer.addEventListener("click", function () {
     
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
-            currentTime.textContent = "Time: " + secondsLeft;
+            time.textContent = "Time: " + secondsLeft;
 
             if (secondsLeft <= 0) {
                 clearInterval(holdInterval);
                 allDone();
-                currentTime.textContent = "Time's up!";
+                time.textContent = "Time's up!";
             }
         }, 1000);
     }
     render(questionIndex);
 }); 
 
-// Renders questions and choices to page: 
+// function to render questions: 
 function render(questionIndex) {
-    // Clears existing text 
+    // Clears questionBox text
     questionsBox.innerHTML = "";
     olCreate.innerHTML = "";
     
     for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
+        // Appends question title 
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
         questionsBox.textContent = userQuestion;
     }
-    // New for each for question choices
+    // for question choices
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -95,31 +93,31 @@ function render(questionIndex) {
         listItem.addEventListener("click", (compare));
     })
 }
-// Event to compare choices with answer
+//compare choices with answer
 function compare(event) {
     var element = event.target;
 
     if (element.matches("li")) {
-
+        //created div to display the answer after user choice
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
         // Correct condition 
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
-            // Correct condition 
+            
         } else {
-            // Will deduct -5 seconds off secondsLeft for wrong answers
+            // deduction of -5 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+            createDiv.textContent = "Wrong! The right answer is:  " + questions[questionIndex].answer;
         }
 
     }
-    // Question Index determines number question user is on
+    
     questionIndex++;
 
     if (questionIndex >= questions.length) {
-        // All done will append last page with user stats
+        // All done will append last page with user resultats
         allDone();
         createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
@@ -131,7 +129,7 @@ function compare(event) {
 // All done will append last page
 function allDone() {
     questionsBox.innerHTML = "";
-    currentTime.innerHTML = "";
+    time.innerHTML = "";
 
     // Heading:
     var createH1 = document.createElement("h1");
@@ -146,12 +144,12 @@ function allDone() {
 
     questionsBox.appendChild(createP);
 
-    // Calculates time remaining and replaces it with score
+    // Calculates time remaining and mutiply with the score
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
         clearInterval(holdInterval);
-        createP.textContent = "Your final score is: " + timeRemaining;
+        createP.textContent = "Your final score is: " + score * secondsLeft;
 
         questionsBox.appendChild(createP2);
     }
@@ -179,7 +177,7 @@ function allDone() {
 
     questionsBox.appendChild(createSubmit);
 
-    // Event listener to capture initials and local storage for initials and score
+    // Add initials and score to local storage 
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -190,7 +188,7 @@ function allDone() {
         } else {
             var finalScore = {
                 initials: initials,
-                score: timeRemaining
+                score: score * secondsLeft
             }
             console.log(finalScore);
             var allScores = localStorage.getItem("allScores");
@@ -202,7 +200,7 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            // Travels to final page
+            // Go to highscores page
             window.location.replace("./HighScores.html");
         }
     });

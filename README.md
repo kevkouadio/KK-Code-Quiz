@@ -24,5 +24,6 @@ THEN 5 seconds are subtracted from the clock,
 WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
-THEN the player can save his/her initials and score. 
+THEN the player can save his/her initials and score.
+The final score is the number of correct answers mutltiply by the remaining seconds. 
 ```
